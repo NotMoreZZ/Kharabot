@@ -21,11 +21,13 @@ class Discordia(discord.Client):
                     break
             else:
                 await message.channel.send(
-                    f'{message.author.mention}, ты даже не ~~гражданин~~ офицер!')
+                    '{}, ты даже не ~~гражданин~~ офицер!'.format(
+                        message.author.mention))
                 return
 
             if not len(message.mentions) == 1:
-                await message.channel.send('Не понял кого принять, нужно упомянуть одного участника.')
+                await message.channel.send(
+                    'Не понял кого принять, нужно упомянуть одного участника.')
                 return
 
             user = message.mentions[0]
@@ -42,10 +44,10 @@ class Discordia(discord.Client):
                 await user.add_roles(giverole)
             except discord.Forbidden:
                 await message.channel.send(
-                    f'У меня нет прав выдать роль {role.name} :(')
+                    'У меня нет прав выдать роль {} :('.format(role.name))
             else:
                 await message.channel.send(
-                    f'{user.mention} теперь {role.name} :)')
+                    '{} теперь {} :)'.format(user.mention, role.name))
 
         return
 

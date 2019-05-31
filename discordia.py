@@ -8,7 +8,7 @@ class Discordia(discord.Client):
         if not message.content.startswith('!') or message.author == self.user:
             return
 
-        if not message.guild.id == '257743384792399872':
+        if not message.guild.id == 257743384792399872:
             await message.channel.send(
                 "Sorry, but I'm availible only at Dauntless Russian Community by now.\nhttps://discord.gg/AU2gj7w")
             return
